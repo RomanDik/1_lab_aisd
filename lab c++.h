@@ -66,10 +66,10 @@ public:
 		{
 			for (int i = 0; i < _size; ++i)
 			{
-				size_t precision = 2;
-				double x = rand() % (int)pow(10, precision);
-				double y = rand() % (int)pow(10, precision);
-				_points[i] = Point(T(m1 + (x / pow(10, precision)) * (m2 - m1)), T(m1 + (y / pow(10, precision)) * (m2 - m1)));
+				size_t value = 2;
+				double x = rand() % (int)pow(10, value);
+				double y = rand() % (int)pow(10, value);
+				_points[i] = Point(T(m1 + (x / pow(10, value)) * (m2 - m1)), T(m1 + (y / pow(10, precision)) * (m2 - m1)));
 			}
 		}
 	}
@@ -78,19 +78,11 @@ public:
 
 	Point<T>& operator[](const size_t index)
 	{
-		if (index >= size() || index < 0)
-		{
-			throw std::out_of_range("BrokenLine::operator[]  invalid index");
-		}
 		return _points[index];
 	}
 
 	const Point<T>& operator[](const size_t index) const
 	{
-		if (index >= size() || index < 0)
-		{
-			throw std::out_of_range("BrokenLine::operator[]  invalid index");
-		}
 		return _points[index];
 	}
 
